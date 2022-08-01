@@ -7,8 +7,7 @@ var NewProductSchema = new Schema({
     uLname : String,
     uEmail : String,
     uPhone : Number,
-    uPassword : String, 
-
+    uPassword : String
 });
 
 var logindata = mongoose.model('login', NewProductSchema); //UserData is the model and NewBookData is the schema
