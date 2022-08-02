@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-      <div class="col-12 text-center mt-3">
+      <div class="col-12 text-center mt-4">
         <h1 class="font-weight-dark text-dark ml-5 mr-5">Sign Up</h1>
         <div class="text-info">Create an Account</div>
       </div>
@@ -11,23 +11,22 @@
 
   <!-- signup -->
 
-  <div class="container pt-5 pb-5">
-    <form (ngSubmit)="AddUser()">
+  <div class="container mb-2 pt-5 pb-5">
+    <form class="row g-3" (ngSubmit)="AddUser()">
       <div class="col-md-6">
         <label for="firstName" class="form-label">First Name</label>
-        <input type="uFname" class="form-control"  name="uFname" [(ngModel)]="loginItem.uFname">
-        <span class="error" id="firstname_message"></span>
+        <input type="uFname" class="form-control"  name="uFname" [(ngModel)]="loginItem.uFname" id="signup_firstName">
       </div>
       <div class="col-md-6">
         <label for="lastName" class="form-label">Last Name</label>
-        <input type="uLname" class="form-control" name="uLname" [(ngModel)]="loginItem.uLname">
+        <input type="uLname" class="form-control" name="uLname" [(ngModel)]="loginItem.uLname" id="signup_lastName">
         <span class="error" id="lastname_message"></span>
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" name="uEmail" [(ngModel)]="loginItem.uEmail" placeholder="Eg : xyz@gmail.com">
-        <span class="error" id="email_message"></span>
+        <input type="email" class="form-control" name="uEmail" [(ngModel)]="loginItem.uEmail" id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com">  
       </div>
+      
       <div class="col-md-6">
       <label for="mobile4" class="form-label">Mobile</label>
       <input type="tel" class="form-control" name="uPhone" [(ngModel)]="loginItem.uPhone" placeholder="Eg : XXX-XXX-XXXX">
@@ -37,13 +36,12 @@
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password</label>
         <input type="password" class="form-control" name="uPassword" [(ngModel)]="loginItem.uPassword" placeholder="Eg : XXX-XXX-XXXX">
-        <span class="error" id="mobile_message"></span>
      </div>
 
     <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Confirm Password</label>
         <input type="password" class="form-control" id="signup_mobile4" placeholder="Eg : XXX-XXX-XXXX">
-        <span class="error" id="mobile_message"></span>
+      
     </div>
       <div class="col-12">
         <div class="form-check">
@@ -59,6 +57,5 @@
       </div>
     </form>
   </div>
-  <br>
 
   <!-- end of signup -->
