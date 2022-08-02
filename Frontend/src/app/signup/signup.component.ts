@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
 
   loginItem = new LoginModel('','','',0,'');
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
   AddUser(){
     this.bookservice.signup(this.loginItem);

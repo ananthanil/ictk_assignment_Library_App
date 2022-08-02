@@ -15,28 +15,28 @@
     <form (ngSubmit)="AddUser()">
       <div class="col-md-6">
         <label for="firstName" class="form-label">First Name</label>
-        <input type="uFname" class="form-control" [(ngModel)]="loginItem.uFname">
+        <input type="uFname" class="form-control"  name="uFname" [(ngModel)]="loginItem.uFname">
         <span class="error" id="firstname_message"></span>
       </div>
       <div class="col-md-6">
         <label for="lastName" class="form-label">Last Name</label>
-        <input type="uLname" class="form-control" [(ngModel)]="loginItem.uLname">
+        <input type="uLname" class="form-control" name="uLname" [(ngModel)]="loginItem.uLname">
         <span class="error" id="lastname_message"></span>
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" [(ngModel)]="loginItem.uEmail" placeholder="Eg : xyz@gmail.com">
+        <input type="email" class="form-control" name="uEmail" [(ngModel)]="loginItem.uEmail" placeholder="Eg : xyz@gmail.com">
         <span class="error" id="email_message"></span>
       </div>
       <div class="col-md-6">
       <label for="mobile4" class="form-label">Mobile</label>
-      <input type="tel" class="form-control" [(ngModel)]="loginItem.uPhone" placeholder="Eg : XXX-XXX-XXXX">
+      <input type="tel" class="form-control" name="uPhone" [(ngModel)]="loginItem.uPhone" placeholder="Eg : XXX-XXX-XXXX">
       <span class="error" id="mobile_message"></span>
       </div>
 
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" [(ngModel)]="loginItem.uPassword" placeholder="Eg : XXX-XXX-XXXX">
+        <input type="password" class="form-control" name="uPassword" [(ngModel)]="loginItem.uPassword" placeholder="Eg : XXX-XXX-XXXX">
         <span class="error" id="mobile_message"></span>
      </div>
 
