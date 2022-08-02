@@ -32,7 +32,7 @@
                     <td>{{ books.bookPrice}}</td>
                     <td>{{ books.bookRate}}</td>
                     <td>
-                        <button class="btn btn-warning" style="cursor:pointer" >Update</button>
+                        <button class="btn btn-warning" style="cursor:pointer" (click)="editbook(books)">Update</button>
                         <button class="btn btn-danger" style="cursor:pointer" (click)="deleteRemove(books)" style="margin-left: 5px;">Delete</button>
                     </td>
                 </tr>

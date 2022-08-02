@@ -41,6 +41,13 @@ app.post('/signup',function(req,res){
  signup.save();
 });
 
+app.get("/:id",(req, res)=>{
+  const id = req.params.id;
+  bookdata.findOne({_id:id}).then((book)=>{
+    res.send(book);
+  });
+});
+
 app.delete('/remove/:id',(req,res)=>{
   id = req.params.id;
   bookdata.findByIdAndDelete({"_id":id})
@@ -48,6 +55,28 @@ app.delete('/remove/:id',(req,res)=>{
     console.log('success')
     res.send();
   })
+});
+
+app.put('/update',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id
+  bookName = req.body.bookName,
+  bookAuthorname = req.body.bookAuthorname,
+  bookReleasedate = req.body.bookReleasedate,
+  bookPrice = req.body.bookPrice,
+  bookRate = req.body.bookRate,
+  bookImageurl = req.body.bookImageurl
+  bookdata.findByIdAndUpdate({"_id":id},
+                                {$set:{"bookName":bookName,
+                                      "bookAuthorname" : bookAuthorname,
+                                      "bookReleasedate" : bookReleasedate,
+                                      "bookPrice" : bookPrice,
+                                      "bookRate" : bookRate,
+                                      "bookImageurl" : bookImageurl
+                                }})
+                                .then(function(){
+                                  res.send();
+                                })
 });
 
 app.listen(3006,function(){

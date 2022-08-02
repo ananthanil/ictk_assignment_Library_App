@@ -12,6 +12,10 @@ export class BookssService {
     return this.http.get("http://localhost:3006/books");
   }
 
+  getbook(id:any){
+    return this.http.get("http://localhost:3006/"+id)
+  }
+
   newBook(item: BookModel)
   {
     return this.http.post("http://localhost:3006/insert",{"book":item})
@@ -29,5 +33,10 @@ export class BookssService {
     .subscribe((data) => {
       console.log(data);
     });
+  }
+  editBook(book:any){
+    console.log('client Update')
+    return this.http.put("http://localhost:3006/update",book)
+    .subscribe(data => {console.log(data)})
   }
 }
