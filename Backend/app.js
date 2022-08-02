@@ -9,9 +9,9 @@ app.use(bodyparser.json())
 
 app.get('/books',function(req,res){
   bookdata.find()
-               .then(function(books){
-                    res.send(books);
-               });
+  .then(function(books){
+       res.send(books);
+  });
 });
 
 app.post('/insert',function(req,res){
