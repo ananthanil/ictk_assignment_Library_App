@@ -14,28 +14,26 @@
                             </button>
                         </th>
                         <th>Book</th>
-                        <!-- <th>Code</th> -->
-                        <th>Author Name</th>
+                        <th>Author</th>
                         <th>Release Date</th>
                         <th>Price</th>
                         <th>Rating</th>
                     </tr>
                 </thead>                        
             <tbody>
-                 <tr ><!-- *ngFor='let product of products' -->
-                    <td><img></td><!-- *ngIf='showImage' -->
-                    <!-- [src] = 'product.imageUrl' -->
-                    <!-- [title] = 'product.productName' -->
-                    <!-- [style.width.px] = 'imageWidth' -->
-                    <!-- [style.margine.px] = 'imageMargin' -->
-                    <td></td><!-- {{ product.productName }}-->
-                    <td></td><!-- {{ product.productCode }}-->
-                    <td></td><!-- {{ product.releaseDate }}-->
-                    <td></td><!-- {{ product.price}}-->
-                    <td></td><!-- {{ product.starRating}} -->
+                 <tr *ngFor='let books of Book'>
+                    <td><img *ngIf='showImage'
+                    [src] = 'books.bookImageurl'
+                    [style.width.px] = 'imageWidth' 
+                    [style.margine.px] = 'imageMargin'></td>
+                    <td>{{ books.bookName }}</td>
+                    <td>{{ books.bookAuthorname }}</td>
+                    <td>{{ books.bookReleasedate }}</td>
+                    <td>{{ books.bookPrice}}</td>
+                    <td>{{ books.bookRate}}</td>
                     <td>
                         <button class="btn btn-warning" style="cursor:pointer" >Update</button>
-                        <button class="btn btn-danger" style="cursor:pointer" style="cursor:pointer"  style="margin-left: 5px;">Delete</button>
+                        <button class="btn btn-danger" style="cursor:pointer"  style="margin-left: 5px;">Delete</button>
                     </td>
                 </tr>
             </tbody>

@@ -7,6 +7,27 @@ var app = new express();
 app.use(cors());
 app.use(bodyparser.json())
 
+app.get('/books',function(req,res){
+  bookdata.find()
+               .then(function(books){
+                    res.send(books);
+               });
+});
+
+app.post('/insert',function(req,res){
+  console.log(req.body);
+  var book = {       
+    bookName : req.body.book.bookName,
+    bookAuthorname : req.body.book.bookAuthorname,
+    bookReleasedate : req.body.book.bookReleasedate,
+    bookPrice : req.body.book.bookPrice,
+    bookRate : req.body.book.bookRate,
+    bookImageurl : req.body.book.bookImageurl,
+    }       
+ var book = new bookdata(book);
+ book.save();
+});
+
 app.listen(3006,function(){
     console.log('listening to port 3006');
   });
