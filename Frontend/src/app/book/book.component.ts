@@ -27,6 +27,13 @@ export class BookComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
+  deleteRemove(book:any){
+    this.bookService.deletebook(book._id)
+    .subscribe((data) => {
+      this.Book = this.Book?.filter(p => p!== book);
+    })
+    }
+
   ngOnInit(): void { 
     this.bookService.getbooks().subscribe((data:any)=>{
       this.Book=JSON.parse(JSON.stringify(data));
