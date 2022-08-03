@@ -10,8 +10,11 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { BookComponent } from './book/book.component';
 import { AddBookComponent } from './add-book/add-book.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdateComponent } from './update/update.component';
+import { AuthService } from './auth.service';
+import { BookssService } from './bookss.service';
+import { TokenInterceptorService } from './token-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,12 @@ import { UpdateComponent } from './update/update.component';
     HttpClientModule,
     FormsModule 
   ],
-  providers: [],
+  providers: [AuthService,BookssService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

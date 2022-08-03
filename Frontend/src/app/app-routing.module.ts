@@ -6,13 +6,14 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { UpdateComponent } from './update/update.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path:'',component:HomePageComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'book',component:BookComponent},
-  {path:'add-book',component:AddBookComponent},
+  {path:'add-book',canActivate:[AuthGuard],component:AddBookComponent},
   {path:'update',component:UpdateComponent}
 ];
 

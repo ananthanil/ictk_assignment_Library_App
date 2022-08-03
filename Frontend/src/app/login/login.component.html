@@ -15,21 +15,21 @@
     
           <div class="col-10 col-md-3">
             <br>
-                <form>
+                <form (ngSubmit)="loginUser()">
   
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="loginemail"  placeholder="Username" aria-describedby="emailHelp">
+                    <!-- <input type="text" class="form-control" id="loginemail" name="uname" [(ngModel)]="user.uname" placeholder="Username" aria-describedby="emailHelp"> -->
+                    <input type="text" name="uname" placeholder="Username" [(ngModel)]="user.uname"/>
                   </div>
   
                   <br>
   
                   <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Password" id="loginpwd">
+                    <input type="password" name="password" [(ngModel)]="user.password" placeholder="Password"/>
                   </div>
   
                   <br>
-  
-                  <button type="button" class="btn btn-outline-success">Login</button>
+                  <button type="submit" class="btn btn-outline-success">Login</button>
                                         
                   <br>
   

@@ -2,10 +2,35 @@ const express = require('express');
 const logindata = require('./src/Model/logindb')
 const bookdata = require('./src/Model/bookdb')
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 var bodyparser = require('body-parser');
 var app = new express();
 app.use(cors());
 app.use(bodyparser.json())
+
+username="admin";
+password="1234";
+
+function verifyToken(req,res,next)
+{
+  if(!req.headers.authorization)
+    {
+      return res.status(401).send('Unauthorized request')
+    }
+  let token=req.headers.authorization.split('')[1]
+  if(token=='null')
+  {
+    return res.status(401).send('Unauthorised request')
+  }
+  let payload=jwt.verify(token,'secretkey')
+  console.log(payload)
+  if(!payload)
+  {
+    return res.status(401).send('Unauthorized request')
+  }
+  req.userId=payload.subject
+  next()
+}
 
 app.get('/books',function(req,res){
   bookdata.find()
@@ -13,6 +38,21 @@ app.get('/books',function(req,res){
        res.send(books);
   });
 });
+
+app.post('/login',(req, res) => {
+  console.log('inside');
+  let userData = req.body
+    if(!username){
+      res.status(401).send('Invalid Password')
+    }else
+      if( password !== userData.password){
+        res.status(401).send('Invalid Password')
+      }else{
+        let payload={subject:username+password}
+        let token=jwt.sign(payload,'secretkey')
+        res.status(200).send({token})
+    }
+})
 
 app.post('/insert',function(req,res){
   console.log(req.body);
